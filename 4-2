@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+int main(void)
+{
+	int n, x;
+	scanf("%d %d", &n, &x);
+	int* arr = (int*)malloc (sizeof(int) * n); //동적 메모리 할당 입력받은 사이즈  * int 만큼
+												// 이 할당받은 메모리 시작 주소를 포인터에 대입
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%d", &arr[i]);
+	}
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < x) printf("%d ", arr[i]); // 동적 메모리에 저장된 값 출력
+	}
+	free(arr); // 동적 메모리 할당 해제
+}
+	
