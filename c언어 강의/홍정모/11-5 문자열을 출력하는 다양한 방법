@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define TEST "A string form #define."
+
+void custom_put(const char* str);
+int custom_put2(const char* str);
+
+int main(){
+	char words[STRLEN] = "";
+	fgets(words, STRLEN, stdin);
+
+	for (int i = 0; i < sizeof(words); ++i) {
+		if (words[i] == '\n') words[i] = '\0';
+	}
+	fputs(words, stdout);
+	fputs("End", stdout);
+}
+
+void custom_put(const char* str) {
+	while (*str != '\0')
+		putchar(*str++);
+}
+
+int custom_put2(const char* str) {
+	int count = 0;
+	while (*str) {
+		putchar(*str++);
+		count++;
+	}
+	putchar('\n');
+	
+	return count; 
+}
