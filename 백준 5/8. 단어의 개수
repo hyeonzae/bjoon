@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#define num 1000001
+
+int main()
+{
+	char str[num];
+	int count = 0;
+	char* tmp;
+	
+	gets(str);
+	tmp = strtok(str, " ");
+
+	while (tmp != NULL) {
+		count++;
+		tmp = strtok(NULL, " ");
+	}
+	printf("%d", count);
+}
+//char tmp를 쓰면 문자를 하나밖에 못 저장하지만 char *str을 써서 여러개의 문자를 저장할 수 있게 한다
+strtok를 써서 띄어쓰기를 한 문자까지 먼저 저장을 하고 그 이후 while구문을 통해 단어의 개수를 센다
